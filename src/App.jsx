@@ -5,10 +5,10 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch geolocation and IP data
+    // Fetch geolocation and IPv4 data
     const fetchLocationData = async () => {
       try {
-        const response = await fetch("https://ipapi.co/json");
+        const response = await fetch("https://ipapi.co/ip4/json");
         const data = await response.json();
         setLocationData(data);
         setLoading(false);
@@ -30,7 +30,7 @@ function App() {
       <h1>IP and Geolocation Data</h1>
       {locationData ? (
         <div>
-          <p><strong>IP Address:</strong> {locationData.ip}</p>
+          <p><strong>IP Address (IPv4):</strong> {locationData.ip}</p>
           <p><strong>City:</strong> {locationData.city}</p>
           <p><strong>Region:</strong> {locationData.region}</p>
           <p><strong>Country:</strong> {locationData.country_name}</p>
